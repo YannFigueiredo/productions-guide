@@ -35,6 +35,7 @@ const GlobalStyles = createGlobalStyle `
 
     p, span, a {
         font-weight: 400;
+        color: var(--color-secondary-font);
     }
 
     body {
