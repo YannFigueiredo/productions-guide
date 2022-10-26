@@ -33,9 +33,22 @@ const GlobalStyles = createGlobalStyle `
         font-weight: 700;
     }
 
+    h2{
+        font-size: var(--text-title);
+    }
+
+    h3{
+        font-size: var(--text-subtitle);
+    }
+
     p, span, a {
         font-weight: 400;
         color: var(--color-secondary-font);
+        font-size: var(--text-span);
+    }
+
+    img {
+        max-width: 100%;
     }
 
     body {

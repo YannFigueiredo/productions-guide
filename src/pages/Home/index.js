@@ -7,15 +7,22 @@ import { getMedias } from '../../utils/requests';
 export default function Home() {
     const { medias, setMedias, url, setUrl, page } = useContext(MediasContext);
     const [ list, setList ] = useState({});
-
-    useEffect(() => {
-        //setUrl('/discover/movie');
-        let result = getMedias('/discover/movie', 1);
+    
+    const loadList = () => {
+        let result = getMedias('/discover/movie', page);
 
         result.then(result => {
             setList(result);
         });
+    };
+
+    useEffect(() => {
+        loadList();
     }, []);
+
+    useEffect(() => {
+        loadList();
+    }, [page]);
 
     return(
         <Container>
