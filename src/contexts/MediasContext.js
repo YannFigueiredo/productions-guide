@@ -4,9 +4,12 @@ import { getMedias } from '../utils/requests';
 export const MediasContext = createContext();
 
 export default function MediasProvider({children}) {
-    const [ medias, setMedias ] = useState({});
-    //const [ url, setUrl ] = useState('');
-    //const [ page, setPage ] = useState(1);
+    const [ moviesList, setMoviesList ] = useState({});
+    const [ seriesList, setSeriesList ] = useState({});
+    const [ page, setPage ] = useState(1);
+    const [ sort, setSort ] = useState();
+    const [ genre, setGenre ] = useState();
+    const [ year, setYear ] = useState();
 
     /*useEffect(() => {
         console.log('url: ' + url);
@@ -20,7 +23,14 @@ export default function MediasProvider({children}) {
     }, [medias]);*/
 
     return(
-        <MediasContext.Provider value={{ medias, setMedias }}>
+        <MediasContext.Provider value={{ 
+            moviesList, setMoviesList, 
+            seriesList, setSeriesList, 
+            page, setPage,
+            sort, setSort,
+            genre, setGenre,
+            year, setYear
+             }}>
             {children}
         </MediasContext.Provider>
     )

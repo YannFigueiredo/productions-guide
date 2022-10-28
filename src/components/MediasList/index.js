@@ -1,11 +1,15 @@
 import { FaStar } from 'react-icons/fa';
 import { formatDateByYear } from '../../utils/formatters';
 import { Container, Info, Poster } from './styles';
+import Loading from '../Loading';
+import { useEffect } from 'react';
 
 export default function MediaList({ medias }) {
+    useEffect(() => {console.log(medias)}, []);
+
     return(
         <Container>
-            {medias.results === 0 && <h1>Carregando...</h1>}
+            {medias.results === false && <Loading />}
             {medias.results && medias.results.map(media => (
                 <article key={media.id}>
                     <Poster>
@@ -16,7 +20,7 @@ export default function MediaList({ medias }) {
                             <FaStar color="yellow" />
                             <span>{media.vote_average}</span>
                         </div>
-                        <span>{formatDateByYear(media.release_date)}</span>
+                        <span>{formatDateByYear(media.release_date || media.first_air_date)}</span>
                     </Info>
                 </article>
             ))}

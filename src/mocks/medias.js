@@ -394,7 +394,7 @@ const medias = {
         }
     ],
     total_pages: 1,
-    total_elements: 1 
+    total_results: 1 
 };
 
 export default medias;

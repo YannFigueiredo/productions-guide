@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.section `
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto;
-    grid-gap: 10px;
+    grid-gap: 20px;
 
     article {
         position: relative;
@@ -26,8 +26,12 @@ export const Container = styled.section `
     }
 `
 export const Poster = styled.div `
+    overflow: hidden;
+    height: 100%;
+
     img{
         width: 100%;
+        height: 100%;
     }
 `
 export const Info = styled.div `
