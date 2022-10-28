@@ -1,5 +1,4 @@
-import { createContext, useState, useEffect } from "react";
-import { getMedias } from '../utils/requests';
+import { createContext, useState } from "react";
 
 export const MediasContext = createContext();
 
@@ -11,25 +10,14 @@ export default function MediasProvider({children}) {
     const [ genre, setGenre ] = useState();
     const [ year, setYear ] = useState();
 
-    /*useEffect(() => {
-        console.log('url: ' + url);
-        console.log('page: ' + page);
-        setMedias(getMedias(url, page));
-  
-    }, [page, url]);
-
-    useEffect(() => {
-        console.log(medias.length);
-    }, [medias]);*/
-
     return(
         <MediasContext.Provider value={{ 
-            moviesList, setMoviesList, 
-            seriesList, setSeriesList, 
-            page, setPage,
-            sort, setSort,
-            genre, setGenre,
-            year, setYear
+                moviesList, setMoviesList, 
+                seriesList, setSeriesList, 
+                page, setPage,
+                sort, setSort,
+                genre, setGenre,
+                year, setYear
              }}>
             {children}
         </MediasContext.Provider>

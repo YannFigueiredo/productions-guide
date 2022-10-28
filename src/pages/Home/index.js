@@ -5,7 +5,7 @@ import { MediasContext } from "../../contexts/MediasContext";
 import { getMedias } from '../../utils/requests';
 
 export default function Home() {
-    const { page, genre, year, sort, moviesList, setMoviesList, seriesList, setSeriesList } = useContext(MediasContext);
+    const { page, setPage, genre, setGenre,  year, setYear, sort, setSort, moviesList, setMoviesList, seriesList, setSeriesList } = useContext(MediasContext);
     const [ list, setList ] = useState({});
     
     const loadSeparateLists = () => {
@@ -14,7 +14,7 @@ export default function Home() {
         result.then(result => {
             setMoviesList(result);
         });
-
+ 
         result = getMedias('/discover/tv', { page: page, with_genres: genre, sort_by: sort, year: year });
 
         result.then(result => {
@@ -33,7 +33,15 @@ export default function Home() {
         );
     };
 
+    const resetParams = () => {
+        setPage(1);
+        setGenre(null);
+        setYear(null);
+        setSort(null)
+    };
+
     useEffect(() => {
+        resetParams();
         loadSeparateLists();
         if(seriesList.results && moviesList.results){
             loadList();
