@@ -1,14 +1,13 @@
 import { Container } from './styles';
-import MediaList from '../../components/MediasList';
+import MediasSlide from '../../components/MediasSlide';
 import { useContext, useEffect, useState } from "react";
 import { MediasContext } from "../../contexts/MediasContext";
 import { getMedias } from '../../utils/requests';
 
 export default function Home() {
     const { page, setPage, genre, setGenre,  year, setYear, sort, setSort, moviesList, setMoviesList, seriesList, setSeriesList } = useContext(MediasContext);
-    const [ list, setList ] = useState({});
     
-    const loadSeparateLists = () => {
+    const loadLists = () => {
         let result = getMedias('/discover/movie', { page: page, with_genres: genre, sort_by: sort, year: year });
 
         result.then(result => {
@@ -22,17 +21,6 @@ export default function Home() {
         });
     };
 
-    const loadList = () => {
-        setList(
-            {
-                page: page,
-                results: [...moviesList.results, ...seriesList.results],
-                total_pages: Math.round((moviesList.total_results + seriesList.total_results)/40),
-                total_results: moviesList.total_results + seriesList.total_results
-            }
-        );
-    };
-
     const resetParams = () => {
         setPage(1);
         setGenre(null);
@@ -42,24 +30,16 @@ export default function Home() {
 
     useEffect(() => {
         resetParams();
-        loadSeparateLists();
-        if(seriesList.results && moviesList.results){
-            loadList();
-        }
-        
-        console.log(list);
+        loadLists();
     }, []);
 
     useEffect(() => {
-        loadSeparateLists();
-        if(seriesList.results && moviesList.results){
-            loadList();
-        }
-    }, [page]);
+        loadLists();
+    }, [page, genre, year, sort]);
 
     return(
         <Container>
-            <MediaList medias={list} />
+            <MediasSlide medias={seriesList.results} title='Séries'/>
         </Container>
     );
 }

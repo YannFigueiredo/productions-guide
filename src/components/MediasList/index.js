@@ -2,11 +2,8 @@ import { FaStar } from 'react-icons/fa';
 import { formatDateByYear } from '../../utils/formatters';
 import { Container, Info, Poster } from './styles';
 import Loading from '../Loading';
-import { useEffect } from 'react';
 
-export default function MediaList({ medias }) {
-    useEffect(() => {console.log(medias)}, []);
-
+export default function MediasList({ medias }) {
     return(
         <Container>
             {medias.results === false && <Loading />}

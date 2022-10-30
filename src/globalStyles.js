@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle `
         --color-dark: rgb(19, 21, 32);
         --color-mid-dark: rgb(22, 34, 36);
         --color-light: rgb(29, 33, 46);
+        --color-emphasis: rgb(255,255, 255);
         --color-main-font: rgb(255, 255, 255);
         --color-secondary-font: rgba(255, 255, 255, 0.71);
         --color-box: linear-gradient(rgb(48, 50, 62), rgb(30, 31, 42));
@@ -53,6 +54,13 @@ const GlobalStyles = createGlobalStyle `
 
     body {
         background-image: radial-gradient(circle, var(--color-light), var(--color-mid-dark), var(--color-dark));
+    }
+
+    @media screen and (max-width: 480px) {
+        h2{
+        font-size: 26px;
+    }
+
     }
 `
 
