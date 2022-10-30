@@ -11,18 +11,15 @@ export const ContainerSlide = styled.div `
     overflow: hidden;
 `
 export const ContainerAuxiliar = styled.div `
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(20, 200px);
+    grid-template-rows: auto;
+    grid-gap: 8px;
     overflow: hidden;
     scroll-behavior: smooth;
-    height: 310px;
 
     article {
-        min-width: 200px;
-        width: 200px;
         cursor: pointer;
-        margin-right: 8px;
-        height: 100%;
         transition: all linear .4s;
     }
 
@@ -42,13 +39,8 @@ export const ContainerAuxiliar = styled.div `
     }
 
     @media screen and (max-width: 480px) {
-        height: 200px;
-
-        article {
-            min-width: 140px;
-            width: 140px;
-            margin-right: 15px;
-        }
+        grid-template-columns: repeat(20, 140px);
+        grid-gap: 15px;
 
         article img {
             transform: scale(1);
