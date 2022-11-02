@@ -4,6 +4,14 @@ export const Container = styled.section `
     position: relative;
     overflow: hidden;
     height: 400px;
+
+    @media screen and (max-width: 768px) {
+        height: 250px;
+    }
+
+    @media screen and (max-width: 480px) {
+        height: 200px;
+    }
 `
 
 export const ContainerSlide = styled.div `
@@ -24,10 +32,20 @@ export const ContainerImg = styled.div `
         top: 0;
         left: 0;
         z-index: 99;
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 30px;
     }
 
     img {
         width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+        h2 {
+            font-size: 20px;
+        }
     }
 `
 
@@ -56,5 +74,19 @@ export const Dots = styled.div `
 
     div:hover {
         background: var(--color-emphasis);
+    }
+
+    @media screen and (max-width: 768px) {
+        div {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        div {
+            width: 15px;
+            height: 15px;
+        }
     }
 `
