@@ -1,6 +1,6 @@
 import { Container } from './styles';
-import MediasSlide from '../../components/MediasSlide';
-import { useContext, useEffect, useState } from "react";
+import MediasMainSlide from '../../components/MediasMainSlide';
+import { useContext, useEffect } from "react";
 import { MediasContext } from "../../contexts/MediasContext";
 import { getMedias } from '../../utils/requests';
 
@@ -9,7 +9,7 @@ export default function Home() {
     
     const loadLists = () => {
         let result = getMedias('/discover/movie', { page: page, with_genres: genre, sort_by: sort, year: year });
-
+      
         result.then(result => {
             setMoviesList(result);
         });
@@ -39,7 +39,7 @@ export default function Home() {
 
     return(
         <Container>
-            <MediasSlide medias={seriesList.results} title='Séries'/>
+            <MediasMainSlide medias={seriesList.results}/>
         </Container>
     );
 }
