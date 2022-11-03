@@ -5,6 +5,10 @@ export const Container = styled.section `
     overflow: hidden;
     height: 400px;
 
+    @media screen and (max-width: 992px) {
+        height: 350px;
+    }
+
     @media screen and (max-width: 768px) {
         height: 250px;
     }
