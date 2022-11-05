@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle `
         //Font size
         --text-label: 13px;
         --text-span: 16px;
-        --text-title: 36px;
+        --text-title: 28px;
         --text-subtitle: 14px;
     }
 
@@ -53,7 +53,16 @@ const GlobalStyles = createGlobalStyle `
     }
 
     body {
+        padding-top: 100px;
+        padding-bottom: var(--vertical-default-spacing);
+        padding-left: 135px;
+        padding-right: var(--horizontal-default-spacing);
+
         background-image: radial-gradient(circle, var(--color-light), var(--color-mid-dark), var(--color-dark));
+
+        @media screen and (max-width: 768px) {
+            padding-left: var(--horizontal-default-spacing);
+        }
     }
 
     @media screen and (max-width: 480px) {

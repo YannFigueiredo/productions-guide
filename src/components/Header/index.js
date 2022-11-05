@@ -7,13 +7,13 @@ import { MediasContext } from "../../contexts/MediasContext";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-    const { page } = useContext(MediasContext);
+    const { path } = useContext(MediasContext);
     const [ menu, setMenu ] = useState(false);
 
     return(
         <Container>
             <Link to='/'><h2>Productions Guide</h2></Link>
-            <Menu activePage={page} className={menu ? 'menu-open' : ''}>
+            <Menu activePage={path} className={menu ? 'menu-open' : ''}>
                 <ul>
                     <li>
                         <Link to="/">

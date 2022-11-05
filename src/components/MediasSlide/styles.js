@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.section `
+    margin-top: 25px;
+
     h2 {
         display: inline-block;
         margin-bottom: 10px;
@@ -58,7 +60,7 @@ export const ButtonBack = styled.div `
     top: 0;
     left: 0;
     bottom: 0;
-    z-index: 999;
+    z-index: 998;
     background: rgba(0, 0, 0, .7);
     font-size: 2.5em;
     font-weight: 700;
@@ -89,7 +91,7 @@ export const ButtonForward = styled.div `
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 999;
+    z-index: 998;
     background: rgba(0, 0, 0, .7);
     font-size: 2.5em;
     font-weight: 700;

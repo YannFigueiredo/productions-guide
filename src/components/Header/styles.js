@@ -7,9 +7,18 @@ export const Container = styled.header `
     justify-content: center;
     align-items: center;
     background: rgb(48, 50, 62);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
 
     a {
         text-decoration: none;
+    }
+
+    h2 {
+        font-size: 36px;
     }
 
     .btn-close-menu {
@@ -45,13 +54,13 @@ export const Container = styled.header `
 `
 
 export const Menu = styled.nav `
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    bottom: 0;
     z-index: 999;
     margin-top: 80px;
     width: 110px;
+    height: 100%;
     background: var(--color-box);
 
     ul li {
@@ -69,12 +78,12 @@ export const Menu = styled.nav `
         color: var(--color-main-font);
     }
 
-    ul li a:hover, ul li:nth-child(${props => props.activePage }) a {
+    ul li a:hover, ul li:nth-child(${props => props.activePage + 1}) a {
         background: var(--color-emphasis);
         color: var(--color-box);
     }
 
-    ul li a:hover span, ul li:nth-child(${props => props.activePage}) a span  {
+    ul li a:hover span, ul li:nth-child(${props => props.activePage + 1}) a span  {
         color: var(--color-box);
     }
 

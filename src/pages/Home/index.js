@@ -1,45 +1,48 @@
 import { Container } from './styles';
+import MediasSlide from '../../components/MediasSlide';
 import MediasMainSlide from '../../components/MediasMainSlide';
-import { useContext, useEffect } from "react";
-import { MediasContext } from "../../contexts/MediasContext";
+import { useEffect, useState, useContext } from "react";
 import { getMedias } from '../../utils/requests';
+import { MediasContext } from '../../contexts/MediasContext';
 
 export default function Home() {
-    const { page, setPage, genre, setGenre,  year, setYear, sort, setSort, moviesList, setMoviesList, seriesList, setSeriesList } = useContext(MediasContext);
+    const [ tops, setTops ] = useState({});
+    const [ popularMovies, setPopularMovies ] = useState({});
+    const [ popularSeries, setPopularSeries ] = useState({});
+    const { setPath } = useContext(MediasContext);
     
-    const loadLists = () => {
-        let result = getMedias('/discover/movie', { page: page, with_genres: genre, sort_by: sort, year: year });
+    const loadList = () => {
+        let randomType = Math.floor(Math.random() * 2);
+
+        let result = getMedias(randomType === 0 ? '/movie/popular' : '/tv/popular', {});
       
         result.then(result => {
-            setMoviesList(result);
+            setTops(result);
         });
- 
-        result = getMedias('/discover/tv', { page: page, with_genres: genre, sort_by: sort, year: year });
 
+        result = getMedias('/movie/popular', {});
+      
         result.then(result => {
-            setSeriesList(result);
+            setPopularMovies(result);
+        });
+
+        result = getMedias('/tv/top_rated', {});
+      
+        result.then(result => {
+            setPopularSeries(result);
         });
     };
 
-    const resetParams = () => {
-        setPage(1);
-        setGenre(null);
-        setYear(null);
-        setSort(null)
-    };
-
     useEffect(() => {
-        resetParams();
-        loadLists();
+        setPath(0);
+        loadList();
     }, []);
-
-    useEffect(() => {
-        loadLists();
-    }, [page, genre, year, sort]);
 
     return(
         <Container>
-            <MediasMainSlide medias={seriesList.results}/>
+            <MediasMainSlide medias={tops.results}/>
+            <MediasSlide medias={popularMovies.results} title='Filmes bem avaliados'/>
+            <MediasSlide medias={popularSeries.results} title='Séries bem avaliadas'/>
         </Container>
     );
 }
