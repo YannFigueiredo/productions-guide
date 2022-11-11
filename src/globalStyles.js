@@ -52,6 +52,30 @@ const GlobalStyles = createGlobalStyle `
         max-width: 100%;
     }
 
+    input {
+        padding: 5px;
+        background: var(--color-box);
+        color: var(--color-main-font);
+        border-radius: 8px;
+        width: 180px;
+    }
+
+    button {
+        background: var(--color-box);
+        padding: 5px;
+        border-radius: 8px;
+        border: none;
+        color: var(--color-main-font);
+        min-width: 100px;
+        cursor: pointer;
+        transition: all linear .5s;
+    }
+
+    button:hover {
+        background: var(--color-emphasis);
+        color: black;
+    }
+
     body {
         padding-top: 100px;
         padding-bottom: var(--vertical-default-spacing);
