@@ -6,7 +6,7 @@ export default function MediasProvider({children}) {
     const [ moviesList, setMoviesList ] = useState({});
     const [ seriesList, setSeriesList ] = useState({});
     const [ path, setPath ] = useState();
-    const [ page, setPage ] = useState(5);
+    const [ page, setPage ] = useState(1);
     const [ sort, setSort ] = useState(null);
     const [ genre, setGenre ] = useState(null);
     const [ year, setYear ] = useState(null);

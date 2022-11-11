@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 import { MediasContext } from '../../contexts/MediasContext';
 import { getMedias } from '../../utils/requests';
 import Pagination from '../../components/Pagination';
+import Filters from '../../components/Filters';
 
 export default function Movies() {
     const { moviesList, setMoviesList, page, setPage, sort, genre, year, setPath } = useContext(MediasContext);
@@ -19,7 +20,7 @@ export default function Movies() {
 
     useEffect(() => {
         setPath(1);
-        console.log('page: ' + page);
+       
         let result = getMedias('/discover/movie', {page: page, sort_by: sort, with_genres: genre, year: year});
 
         result.then(result => {
@@ -29,6 +30,7 @@ export default function Movies() {
 
     return(
         <div>
+            <Filters type={"movie"} show={true}/>
             <MediasList medias={moviesList} />
             <Pagination />
         </div>
