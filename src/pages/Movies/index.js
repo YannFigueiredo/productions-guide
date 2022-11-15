@@ -32,7 +32,7 @@ export default function Movies() {
         <div>
             <Filters type={"movie"} show={true}/>
             <MediasList medias={moviesList} />
-            <Pagination />
+            <Pagination lengthMedias={moviesList.total_pages}/>
         </div>
     );
 }

@@ -12,8 +12,8 @@ export default function Search() {
     const { type, query } = useParams();
 
     useEffect(() => {
-        setPage(null);
-        setPath(null);
+        setPage(1);
+        setPath(-1); 
 
         let result = getMedias(`/search/${type}?query=${encodeURI(query)}`, {page: page, sort_by: sort, with_genres: genre, year: year});
 
@@ -23,7 +23,7 @@ export default function Search() {
     }, []);
 
     useEffect(() => {
-        setPath(null);
+        setPath(-1);
 
         let result = getMedias(`/search/${type}?query=${encodeURI(query)}`, {page: page, sort_by: sort, with_genres: genre, year: year});
 
@@ -37,7 +37,7 @@ export default function Search() {
         <div>
             <Filters type={type} show={false}/>
             <MediasList medias={medias}/>
-            <Pagination />
+            <Pagination lengthMedias={medias.total_pages}/>
         </div>
     );
 }

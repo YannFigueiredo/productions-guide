@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 import { MediasContext } from '../../contexts/MediasContext';
 import { getMedias } from '../../utils/requests';
 import Pagination from '../../components/Pagination';
+import Filters from '../../components/Filters';
 
 export default function Series() {
     const { seriesList, setSeriesList, page, setPage, sort, genre, year, setPath } = useContext(MediasContext);
@@ -29,8 +30,9 @@ export default function Series() {
 
     return(
         <div>
+            <Filters type={"tv"} show={true}/>
             <MediasList medias={seriesList} />
-            <Pagination />
+            <Pagination lengthMedias={seriesList.total_pages}/>
         </div>
     );
 }

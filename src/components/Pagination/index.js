@@ -5,9 +5,9 @@ import { Container } from "./styles";
 const MAX_ITEMS = 15;
 const MAX_LEFT = (MAX_ITEMS - 1) / 2;
 
-export default function Pagination() {
+export default function Pagination({ lengthMedias }) {
     const { page, setPage } = useContext(MediasContext);
-    const paginationItems = Array.from({ length: MAX_ITEMS });
+    const paginationItems = Array.from({ length: parseInt(lengthMedias) >= MAX_ITEMS ? MAX_ITEMS : parseInt(lengthMedias)});
     const first = Math.max(page - MAX_LEFT, 1);
     
     return(
