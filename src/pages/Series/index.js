@@ -31,7 +31,7 @@ export default function Series() {
     return(
         <div>
             <Filters type={"tv"} show={true}/>
-            <MediasList medias={seriesList} />
+            <MediasList type={"tv"} medias={seriesList} />
             <Pagination lengthMedias={seriesList.total_pages}/>
         </div>
     );

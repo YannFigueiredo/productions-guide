@@ -3,9 +3,6 @@ import tmdbApi from '../services/themoviedb-api.js';
 export async function getMedias(url, params) {
     let list = {};
 
-    //console.log(url);
-    //console.log(params);
-
     await tmdbApi.get(url, {
         params: {
             api_key: '6d7eca4cdb083ab58f531783d27d25fc',
@@ -29,6 +26,22 @@ export async function getGenres(url) {
         params: {
             api_key: '6d7eca4cdb083ab58f531783d27d25fc',
             language: 'pt-br'
+        }
+    }).then(response => {
+        list = response.data;
+    }).catch((error) => {console.log("Erro: " + error)});
+
+    return list;
+}
+
+export async function getMedia(url) {
+    let list = {};
+
+    await tmdbApi.get(url, {
+        params: {
+            api_key: '6d7eca4cdb083ab58f531783d27d25fc',
+            language: 'pt-br',
+            append_to_response: 'videos'
         }
     }).then(response => {
         list = response.data;

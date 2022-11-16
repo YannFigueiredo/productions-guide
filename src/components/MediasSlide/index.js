@@ -1,9 +1,11 @@
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { ButtonBack, ButtonForward, Container, ContainerSlide, ContainerAuxiliar } from './styles';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function MediasSlide({ medias, title }) {
+export default function MediasSlide({ medias, title, type }) {
     const containerAux = useRef(null);
+    const navigate = useNavigate();
 
     const backSlide = (e) => {
         e.preventDefault();
@@ -25,7 +27,7 @@ export default function MediasSlide({ medias, title }) {
                     <ButtonBack onClick={backSlide}><IoIosArrowBack color='white'/></ButtonBack>
                     <ButtonForward onClick={forwardSlide}><IoIosArrowForward color='white'/></ButtonForward>
                     {medias && medias.map(media => (
-                        <article key={media.id}>
+                        <article key={media.id} onClick={() => {navigate(`/${type}/${media.id}`)}}>
                             <img src={`http://image.tmdb.org/t/p/w400${media.poster_path}`} alt={media.title}/>
                         </article>
                     ))}

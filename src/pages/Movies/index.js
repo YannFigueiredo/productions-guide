@@ -31,7 +31,7 @@ export default function Movies() {
     return(
         <div>
             <Filters type={"movie"} show={true}/>
-            <MediasList medias={moviesList} />
+            <MediasList type={"movie"} medias={moviesList} />
             <Pagination lengthMedias={moviesList.total_pages}/>
         </div>
     );

@@ -36,7 +36,7 @@ export default function Search() {
     return(
         <div>
             <Filters type={type} show={false}/>
-            <MediasList medias={medias}/>
+            <MediasList type={type} medias={medias}/>
             <Pagination lengthMedias={medias.total_pages}/>
         </div>
     );

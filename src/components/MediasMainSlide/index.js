@@ -1,7 +1,9 @@
 import { Container, ContainerImg, ContainerSlide, Dots } from "./styles";
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 
-export default function MediasMainSlide({ medias }) {
+export default function MediasMainSlide({ medias, type }) {
+    const navigate = useNavigate();
     const slide = useRef(null);
     const [ position, setPosition ] = useState(0);
 
@@ -27,7 +29,7 @@ export default function MediasMainSlide({ medias }) {
         <Container>
             <ContainerSlide ref={slide}>
                 {medias && medias.slice(0, 10).map(media => (
-                    <ContainerImg key={media.id}>
+                    <ContainerImg key={media.id} onClick={() => {navigate(`/${type}/${media.id}`)}}>
                         <h2>{media.title || media.name}</h2>
                         <img src={`http://image.tmdb.org/t/p/original${media.backdrop_path}`} alt={media.title}></img>
                     </ContainerImg>

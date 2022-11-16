@@ -10,17 +10,19 @@ export default function Home() {
     const [ popularMovies, setPopularMovies ] = useState({});
     const [ popularSeries, setPopularSeries ] = useState({});
     const { setPath } = useContext(MediasContext);
+    let type = null;
     
     const loadList = () => {
         let randomType = Math.floor(Math.random() * 2);
 
         let result = getMedias(randomType === 0 ? '/movie/popular' : '/tv/popular', {});
+        type = randomType === 0 ? 'movie' : 'tv'
       
         result.then(result => {
             setTops(result);
         });
 
-        result = getMedias('/movie/popular', {});
+        result = getMedias('/movie/top_rated', {});
       
         result.then(result => {
             setPopularMovies(result);
@@ -40,9 +42,9 @@ export default function Home() {
 
     return(
         <Container>
-            <MediasMainSlide medias={tops.results}/>
-            <MediasSlide medias={popularMovies.results} title='Filmes bem avaliados'/>
-            <MediasSlide medias={popularSeries.results} title='Séries bem avaliadas'/>
+            <MediasMainSlide medias={tops.results} type={type}/>
+            <MediasSlide medias={popularMovies.results} title='Filmes bem avaliados' type="movie"/>
+            <MediasSlide medias={popularSeries.results} title='Séries bem avaliadas' type="tv"/>
         </Container>
     );
 }
