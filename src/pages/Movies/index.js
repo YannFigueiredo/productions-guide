@@ -4,6 +4,7 @@ import { MediasContext } from '../../contexts/MediasContext';
 import { getMedias } from '../../utils/requests';
 import Pagination from '../../components/Pagination';
 import Filters from '../../components/Filters';
+import { Container } from './styles';
 
 export default function Movies() {
     const { moviesList, setMoviesList, page, setPage, sort, genre, year, setPath } = useContext(MediasContext);
@@ -29,10 +30,10 @@ export default function Movies() {
     }, [ page, sort, genre, year ]);
 
     return(
-        <div>
+        <Container>
             <Filters type={"movie"} show={true}/>
             <MediasList type={"movie"} medias={moviesList} />
             <Pagination lengthMedias={moviesList.total_pages}/>
-        </div>
+        </Container>
     );
 }

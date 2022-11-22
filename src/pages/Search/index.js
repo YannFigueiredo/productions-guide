@@ -5,6 +5,7 @@ import { getMedias } from '../../utils/requests';
 import Pagination from '../../components/Pagination';
 import Filters from '../../components/Filters';
 import { useParams } from 'react-router-dom';
+import { Container } from './styles';
 
 export default function Search() {
     const { page, setPage, genre, year, sort, setPath } = useContext(MediasContext);
@@ -34,10 +35,10 @@ export default function Search() {
 
 
     return(
-        <div>
+        <Container>
             <Filters type={type} show={false}/>
             <MediasList type={type} medias={medias}/>
             <Pagination lengthMedias={medias.total_pages}/>
-        </div>
+        </Container>
     );
 }

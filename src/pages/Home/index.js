@@ -10,13 +10,13 @@ export default function Home() {
     const [ popularMovies, setPopularMovies ] = useState({});
     const [ popularSeries, setPopularSeries ] = useState({});
     const { setPath } = useContext(MediasContext);
-    let type = null;
+    const [ type, setType ] = useState();
     
     const loadList = () => {
         let randomType = Math.floor(Math.random() * 2);
 
         let result = getMedias(randomType === 0 ? '/movie/popular' : '/tv/popular', {});
-        type = randomType === 0 ? 'movie' : 'tv'
+        setType(randomType === 0 ? 'movie' : 'tv');
       
         result.then(result => {
             setTops(result);

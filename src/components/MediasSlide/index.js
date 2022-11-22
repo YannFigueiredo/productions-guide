@@ -28,7 +28,7 @@ export default function MediasSlide({ medias, title, type }) {
                     <ButtonForward onClick={forwardSlide}><IoIosArrowForward color='white'/></ButtonForward>
                     {medias && medias.map(media => (
                         <article key={media.id} onClick={() => {navigate(`/${type}/${media.id}`)}}>
-                            <img src={`http://image.tmdb.org/t/p/w400${media.poster_path}`} alt={media.title}/>
+                            <img src={`http://image.tmdb.org/t/p/w400${media.poster_path}`} alt={media.title || media.name}/>
                         </article>
                     ))}
                 </ContainerAuxiliar>
