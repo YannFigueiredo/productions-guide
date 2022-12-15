@@ -68,16 +68,16 @@ export const Dots = styled.div `
         height: 20px;
         margin-right: 10px;
         border-radius: 50%;
-        background: var(--color-box); 
+        background: ${({ theme }) => theme.colors.box}; 
         cursor: pointer;
     }
 
     div:nth-child(${(props) => props.active + 1}) {
-        background: var(--color-emphasis);
+        background: ${({ theme }) => theme.colors.emphasis};
     }
 
     div:hover {
-        background: var(--color-emphasis);
+        background: ${({ theme }) => theme.colors.emphasis};
     }
 
     @media screen and (max-width: 768px) {

@@ -37,7 +37,7 @@ export const ContainerAuxiliar = styled.div `
     }
 
     article:hover {
-        border: 2px solid var(--color-emphasis);
+        border: 2px solid ${({ theme }) => theme.colors.emphasis};
     }
 
     @media screen and (max-width: 480px) {

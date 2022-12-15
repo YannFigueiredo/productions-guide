@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div `
     padding-top: 100px;
-    padding-bottom: var(--vertical-default-spacing);
+    padding-bottom: ${({ theme }) => theme.spacing.vertical_default}px;
     padding-left: 135px;
-    padding-right: var(--horizontal-default-spacing);
+    padding-right: ${({ theme }) => theme.spacing.horizontal_default}px;
 
     position: relative;
 
@@ -19,7 +19,7 @@ export const Container = styled.div `
     }
 
     @media screen and (max-width: 768px) {
-        padding-left: var(--horizontal-default-spacing);
+        padding-left: ${({ theme }) => theme.spacing.horizontal_default}px;
     }
 
     @media screen and (max-width: 1200px) {
@@ -56,7 +56,7 @@ export const Banner = styled.div `
     }
 
     @media screen and (max-width: 768px) {
-        margin-bottom: 15px;
+        margin-bottom: ${({ theme }) => theme.spacing.vertical_default}px;
     }
 `
 
@@ -109,8 +109,8 @@ export const Infos = styled.span `
 
     p {
         display: inline-block;
-        margin-top: 15px;
-        margin-bottom: 15px;
+        margin-top: ${({ theme }) => theme.spacing.vertical_default}px;
+        margin-bottom: ${({ theme }) => theme.spacing.vertical_default}px;
     }
 `
 
@@ -118,7 +118,7 @@ export const ContainerCreators = styled.div `
     h3 {
         display: inline-block;
         font-size: 20px;
-        margin-bottom: 15px;
+        margin-bottom: ${({ theme }) => theme.spacing.vertical_default}px;
     }
 `
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header `
-    padding: var(--vertical-default-spacing) var(--horizontal-default-spacing);
+    padding: ${({ theme }) => theme.spacing.vertical_default}px ${({ theme }) => theme.spacing.horizontal_default}px;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -27,7 +27,7 @@ export const Container = styled.header `
         top: 0;
         right: 0;
         z-index: 999;
-        margin: 15px;
+        margin: ${({ theme }) => theme.spacing.vertical_default}px;
         cursor: pointer;
     }
 
@@ -61,7 +61,7 @@ export const Menu = styled.nav `
     margin-top: 80px;
     width: 110px;
     height: 100%;
-    background: var(--color-box);
+    background: ${({ theme }) => theme.colors.box};
 
     ul li {
         list-style-type: none;
@@ -75,16 +75,16 @@ export const Menu = styled.nav `
         align-items: center;
         padding: 20px;
         transition: all linear .5s;
-        color: var(--color-main-font);
+        color: ${({ theme }) => theme.colors.main_font};
     }
 
     ul li a:hover, ul li:nth-child(${props => props.activePage + 1}) a {
-        background: var(--color-emphasis);
-        color: var(--color-box);
+        background: ${({ theme }) => theme.colors.emphasis};
+        color: ${({ theme }) => theme.colors.dark};
     }
 
     ul li a:hover span, ul li:nth-child(${props => props.activePage + 1}) a span  {
-        color: var(--color-box);
+        color: ${({ theme }) => theme.colors.dark};
     }
 
     @media screen and (max-width: 768px) {

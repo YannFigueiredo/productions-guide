@@ -11,8 +11,8 @@ export const Container = styled.div `
 
     ul li {
         list-style-type: none;
-        background: var(--color-box);
-        color: var(--color-main-font);
+        background: ${({ theme }) => theme.colors.box};
+        color: ${({ theme }) => theme.colors.main_font};
         border-radius: 8px;
         padding: 8px 12px;
         cursor: pointer;
@@ -24,12 +24,12 @@ export const Container = styled.div `
     }
 
     ul li:hover {
-        background: var(--color-emphasis);
-        color: var(--color-box);
+        background: ${({ theme }) => theme.colors.emphasis};
+        color: ${({ theme }) => theme.colors.dark};
     }
 
     .active-page {
-        background: var(--color-emphasis);
-        color: var(--color-box);
+        background: ${({ theme }) => theme.colors.emphasis};
+        color: ${({ theme }) => theme.colors.dark};
     }
 `
