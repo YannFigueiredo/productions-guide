@@ -8,7 +8,7 @@ export default function Select({ options, defaultSelected, action, label, textLa
     return(
         <Container>
             <label htmlFor={label}>{textLabel}</label>
-            <select name={label} id={label} onChange={(e) => {
+            <select defaultValue={defaultSelected} name={label} id={label} onChange={(e) => {
                 switch(action){
                     case "genres":
                         setGenre(e.target.value);
@@ -23,7 +23,7 @@ export default function Select({ options, defaultSelected, action, label, textLa
                         break;
                 }
             }}>
-                <option value='' disabled selected>{defaultSelected}</option>
+                <option value={defaultSelected} disabled>{defaultSelected}</option>
                 {options && options.map((option, key) => (
                     <option key={key} value={option.value || option.id}>{option.name}</option>
                 ))}

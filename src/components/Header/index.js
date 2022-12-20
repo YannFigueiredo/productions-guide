@@ -12,8 +12,8 @@ export default function Header() {
 
     return(
         <Container>
-            <Link to='/'><h2>Productions Guide</h2></Link>
-            <Menu activePage={path} className={menu ? 'menu-open' : ''}>
+            <Link data-testid='title' to='/'><h2>Productions Guide</h2></Link>
+            <Menu data-testid='menu' activePage={path} className={menu ? 'menu-open' : ''}>
                 <ul>
                     <li>
                         <Link to="/">
@@ -35,8 +35,8 @@ export default function Header() {
                     </li>
                 </ul>
             </Menu>
-            <GiHamburgerMenu size={25} color={'var(--color-main-font)'} className='btn-open-menu' onClick={() => {setMenu(true)}}/>
-            <MdClose size={30} color={'var(--color-main-font)'} className={menu ? 'btn-close-menu menu-open' : 'btn-close-menu'} onClick={() => {setMenu(false)}}/>
+            <GiHamburgerMenu data-testid='btn-open-menu' size={25} color={'var(--color-main-font)'} className='btn-open-menu' onClick={() => {setMenu(true)}}/>
+            <MdClose data-testid='btn-close-menu' size={30} color={'var(--color-main-font)'} className={menu ? 'btn-close-menu menu-open' : 'btn-close-menu'} onClick={() => {setMenu(false)}}/>
         </Container>
     );
 }
