@@ -10,6 +10,7 @@ export default function MediasProvider({children}) {
     const [ sort, setSort ] = useState(null);
     const [ genre, setGenre ] = useState(null);
     const [ year, setYear ] = useState(null);
+    const updatePage = page => setPage(page);
 
     useEffect(() => {
         switch(window.location.pathname){
@@ -31,7 +32,7 @@ export default function MediasProvider({children}) {
         <MediasContext.Provider value={{ 
                 moviesList, setMoviesList, 
                 seriesList, setSeriesList, 
-                page, setPage,
+                page, setPage, updatePage,
                 sort, setSort,
                 genre, setGenre,
                 year, setYear,

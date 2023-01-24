@@ -24,6 +24,9 @@ export default function Movies() {
        
         let result = getMedias('/discover/movie', {page: page, sort_by: sort, with_genres: genre, year: year});
 
+        //console.log(result);
+        //console.log(result.);
+
         result.then(result => {
             setMoviesList(result);
         });

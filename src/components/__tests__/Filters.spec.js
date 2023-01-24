@@ -5,8 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import Filters from "../Filters";
 
 
-/*describe('Filters tests', () => {
-    test('should render correctly', () => {
+describe('Filters tests', () => {
+    test.only('should render correctly', () => {
         const type = "tv";
         const show = true;
         
@@ -17,11 +17,11 @@ import Filters from "../Filters";
             ,
             {wrapper: AppProviders}
         );
-
-        expect(screen.getByTestId("genres")).toBeVisible();
-        expect(screen.getByLabelText("sort")).toBeInTheDocument();
-        expect(screen.getByLabelText("years")).toBeInTheDocument();
+        
+        expect(screen.getByText(/Gênero/)).toBeInTheDocument();
+        expect(screen.getByText(/Ordenar por/)).toBeInTheDocument();
+        expect(screen.getByText(/Ano/)).toBeInTheDocument();
         expect(screen.getByPlaceholderText("Pesquise por nome")).toBeInTheDocument();
-        expect(screen.getByRole("search_button")).toBeInTheDocument();
+        expect(screen.getByText("Pesquisar")).toBeInTheDocument();
     });
-});*/
+});
