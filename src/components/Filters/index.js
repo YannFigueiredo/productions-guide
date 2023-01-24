@@ -36,7 +36,7 @@ export default function Filters({ type, show }) {
             </ContainerSelect>
             <ContainerSearch>
                 <input type="search" placeholder="Pesquise por nome" id="search"/>
-                <button role="search_button" onClick={() => {navigate(`/search/${type}/${document.getElementById("search").value}`)}}>Pesquisar</button>
+                <button onClick={() => {navigate(`/search/${type}/${document.getElementById("search").value}`)}}>Pesquisar</button>
             </ContainerSearch>
         </Container>
     );
