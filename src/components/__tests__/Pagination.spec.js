@@ -63,32 +63,22 @@ describe('Pagination tests', () => {
         expect(optionsPage).toHaveLength(MAX_ITEMS);
     });
     
-    /*test('should update page context when clicking in page option', () => {
+    test('should call update page function when clicking in page option', () => {
         const lengthMedias = 2;
-        const contextValues = {
-            page: 1,
-            updatePage: jest.fn().mockImplementation((newPage) => {
-                contextValues.page = newPage;
-            })
-        };
-
-        const wrapper = ({children}) => (
-            <MediasContext.Provider value={contextValues}>
-                <AppProviders>
-                    {children}
-                </AppProviders>
-            </MediasContext.Provider>
-        );
+        const page = 1;
+        const updatePage = jest.fn();
 
         render(
-            <Pagination lengthMedias={lengthMedias} />,
-            { wrapper }
+            <MediasContext.Provider value={{page, updatePage}}>
+                <Pagination lengthMedias={lengthMedias} />
+            </MediasContext.Provider>,
+            { wrapper: AppProviders }
         );
         
         const optionPage = screen.getByTestId('button-2');
 
         userEvent.click(optionPage);
 
-        expect(contextValues.updatePage).toHaveBeenCalledTimes(1);
-    });*/
+        expect(updatePage).toHaveBeenCalledTimes(1);
+    });
 });
