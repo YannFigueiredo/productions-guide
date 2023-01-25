@@ -7,7 +7,7 @@ export default function Select({ options, defaultSelected, action, label, textLa
     
     return(
         <Container>
-            <label htmlFor={label}>{textLabel}</label>
+            <label data-testid="select-label" htmlFor={label}>{textLabel}</label>
             <select defaultValue={defaultSelected} name={label} id={label} onChange={(e) => {
                 switch(action){
                     case "genres":
