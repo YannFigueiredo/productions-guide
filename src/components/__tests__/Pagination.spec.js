@@ -4,7 +4,6 @@ import "@testing-library/jest-dom/extend-expect";
 import { AppProviders } from "../../providers/AppProviders";
 import Pagination from "../Pagination";
 import { MediasContext } from "../../contexts/MediasContext";
-import MediasProvider from "../../contexts/MediasContext";
 
 describe('Pagination tests', () => {
     test('should render correctly', () => {
