@@ -4,8 +4,9 @@ import Movies from './pages/Movies';
 import Series from './pages/Series';
 import Search from './pages/Search';
 import Production from './pages/Production';
-
+import NotFound from './pages/NotFound';
 import Header from './components/Header';
+
 
 export function RoutesApp() {
     return(
@@ -17,6 +18,7 @@ export function RoutesApp() {
                 <Route path='/series' element={<Series/>}/>
                 <Route path='/search/:type/:query' element={<Search/>}/>
                 <Route path='/:type/:id' element={<Production/>}/>
+                <Route path='*' element={<NotFound />}/>
             </Routes>
         </BrowserRouter>
     );
