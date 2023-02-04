@@ -22,7 +22,7 @@ Aplicação responsiva, feita em React, que disponibiliza informações sobre di
 # Tecnologias utilizadas
 - Linguagens: HTML / CSS / JavaScript
 - Frameworks: React.js
-- Bibliotecas: Axios / React Hooks / React Router Dom / React Icons / Context API / Jest / React Testing Library
+- Bibliotecas: Axios / React Hooks / React Router Dom / React Icons / Context API / Jest / React Testing Library / Styled Components
 - API: TheMovieDB (https://www.themoviedb.org/documentation/api)
 - Versionamento: Git / Github
 
