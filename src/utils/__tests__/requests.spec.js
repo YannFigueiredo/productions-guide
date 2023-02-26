@@ -4,22 +4,6 @@ import tmdbApi from '../../services/themoviedb-api';
 import medias from '../../mocks/medias';
 import { getMedias } from "../requests";
 
-//const apiMock = new MockAdapter(tmdbApi);
-
-/*describe('getMedias tests', () => {
-    test('should return medias list', async () => {
-        let result = null;
-
-        act(() => {
-            apiMock.onGet('/discover/movie?api_key=6d7eca4cdb083ab58f531783d27d25fc&language=pt-br&$page=1').reply(200, [{...medias}]);
-        });
-
-        await waitFor(() => {
-            expect(result).not.toBeNull();
-        });
-    });
-});*/
-
 describe('getMedias tests', () => {
     test('should return medias list', async () => {
         let url = '/discover/movie?api_key=6d7eca4cdb083ab58f531783d27d25fc&language=pt-br&$page=1';
